@@ -2,30 +2,29 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/Hero.astro";
 import ServiceCard from "../components/ServiceCard.astro";
-import LogoStrip from "../components/LogoStrip.astro";
 import WorkCard from "../components/WorkCard.astro";
 
 const services = [
 	{
-		icon: "&#9729;",
+		icon: "\u2601",
 		title: "Cloud Architecture",
 		description:
 			"AWS infrastructure design, serverless systems, and cost optimization. Lambda, SQS, SNS, ECS, and more.",
 	},
 	{
-		icon: "&#9881;",
+		icon: "\u2699",
 		title: "Developer Tooling",
 		description:
 			"Custom CLIs, workflow automation, and internal tools that reduce friction and keep teams focused on shipping.",
 	},
 	{
-		icon: "&#9776;",
+		icon: "\u2630",
 		title: "CI/CD & DevOps",
 		description:
 			"Build pipelines, containerization, and deployment automation across GitHub Actions, GitLab CI, and more.",
 	},
 	{
-		icon: "&#10070;",
+		icon: "\u2756",
 		title: "Technical Leadership",
 		description:
 			"Architecture reviews, ADRs, mentorship, and hands-on engineering for teams scaling their platform.",
@@ -69,8 +68,6 @@ const featuredWork = [
 		secondaryText="View work"
 		secondaryHref="/work"
 	/>
-
-	<LogoStrip />
 
 	<section class="section">
 		<div class="container">
