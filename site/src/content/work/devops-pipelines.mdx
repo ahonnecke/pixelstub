@@ -1,0 +1,32 @@
+---
+title: "CI/CD Pipeline Design"
+description: "End-to-end build, test, and deployment automation across multiple CI platforms and cloud providers."
+image: "/images/work/devops-pipelines.jpg"
+tags: ["GitHub Actions", "Docker", "AWS", "CircleCI", "SonarQube"]
+order: 4
+---
+
+## Problem
+
+Teams without mature CI/CD pipelines waste time on manual deployments, inconsistent environments, and quality issues that should be caught before code hits production.
+
+## Approach
+
+Across multiple organizations, I've designed and implemented CI/CD pipelines that automate the full path from commit to production. This includes:
+
+- **Pipeline Architecture** — Designed CI workflows with parallel test execution, caching, and artifact management
+- **Containerization** — Docker multi-stage builds for consistent dev/staging/prod environments
+- **Quality Gates** — Pre-commit hooks, linting (Biome, Ruff, Black), and automated code review
+- **SonarQube Rollout** — Drove self-hosted SonarQube adoption, achieving >50% unit-test coverage gains
+- **Cost Optimization** — Artifact build pipelines that cut build time and CI costs
+
+## Technologies
+
+- GitHub Actions, GitLab CI, CircleCI, Bitbucket Pipelines
+- Docker, Docker Compose
+- SonarQube, pre-commit
+- AWS (ECS, Lambda, S3)
+
+## Outcome
+
+These pipelines reduced deployment friction, caught bugs earlier, and gave teams confidence to ship faster. The SonarQube rollout alone drove measurable improvements in test coverage and code quality across multiple repositories.

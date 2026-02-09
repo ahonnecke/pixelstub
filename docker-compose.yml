@@ -1,0 +1,14 @@
+services:
+  site:
+    build:
+      context: ./site
+    volumes:
+      - ./site:/app
+      - /app/node_modules
+    tty: true
+    ports:
+      - "4321:4321"
+    environment:
+      - NODE_ENV=development
+    working_dir: /app
+    command: ["npm", "run", "dev"]

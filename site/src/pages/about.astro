@@ -1,0 +1,352 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/Hero.astro";
+
+const career = [
+	{
+		company: "Panasonic North America",
+		role: "Lead Cloud Engineer",
+		years: "2020 \u2013 2025",
+		highlights: [
+			"Subject matter expert for Python, boto3, containerization, and serverless architecture",
+			"Chaired cross-team best-practices group; mentored engineers on security and code quality",
+			"Built internal tooling: Lambda hot-mounting, SNS inspection, Git/ticket integration",
+			"Identified and decommissioned unused AWS resources, achieving ~30% infrastructure savings",
+			"Drove SonarQube rollout with >50% unit-test coverage gains",
+			"Built near-real-time OBU ingress on Lambda/SQS/SNS with horizontal scale",
+		],
+	},
+	{
+		company: "Digital Assets Data",
+		role: "Sr. Software Engineer / Blockchain Tech Lead",
+		years: "2018 \u2013 2020",
+		highlights: [
+			"Built Python microservices for on-chain data extraction from cloud-hosted ETH/BTC nodes",
+			"Ingestion pipelines processing 100 GB nightly on S3/CloudWatch/Lambda/ECS",
+			"Fan-out CI with CircleCI for parallel PR testing; standardized unit testing practices",
+			"Implemented TOTP MFA and hardened containerized node infrastructure",
+		],
+	},
+	{
+		company: "Havenly",
+		role: "Senior Software Engineer",
+		years: "2015 \u2013 2017",
+		highlights: [
+			"Designed horizontally scalable queued-ingest system: 7M+ rows/day from 25+ sources",
+			"Built decoupled pipelines with faceted fuzzy search",
+		],
+	},
+	{
+		company: "Colorado State University Global Campus",
+		role: "Systems Architect",
+		years: "2014 \u2013 2015",
+		highlights: [
+			"Led architecture and SDLC improvements",
+			"Subject matter expert for Linux, PHP, SQL, data modeling, and pentesting",
+		],
+	},
+	{
+		company: "Photobucket",
+		role: "Software Engineer \u2192 Senior Software Engineer",
+		years: "2005 \u2013 2009",
+		highlights: [
+			"Owned payments integration (PayPal, credit card processing) and internal tooling",
+			"Introduced CI and unit testing; mentored engineers",
+			"Created model code-generation system and led MVC framework migration",
+		],
+	},
+];
+
+const education = [
+	{
+		degree: "Master of Business Administration",
+		school: "University of Denver",
+		years: "2004 \u2013 2005",
+		note: "Emphasis: Accounting",
+	},
+	{
+		degree: "Bachelor of Computer Science",
+		school: "University of Denver",
+		years: "2000 \u2013 2004",
+		note: "Minors: Mathematics, Philosophy",
+	},
+];
+
+const speaking = [
+	{
+		title: "Cleaning Up Your Python Environment",
+		event: "PyColorado",
+		link: "https://www.youtube.com/watch?v=cpseEHA_haA",
+	},
+	{
+		title: "The Value of Linting",
+		event: "PyDEN",
+		link: "https://github.com/ahonnecke/linting",
+	},
+];
+---
+
+<PageLayout
+	title="About — Pixelstub, LLC"
+	description="Ashton Honnecke — 25 years of software engineering, from Photobucket to Panasonic. Cloud architecture, developer tooling, and technical leadership."
+>
+	<Hero
+		headline="About"
+		tagline="I'm Ashton Honnecke, founder of Pixelstub, LLC. I've spent 25 years building software, leading teams, and shipping systems that work."
+	/>
+
+	<section class="section">
+		<div class="container about-grid">
+			<div class="about-main">
+				<h2>Background</h2>
+				<p>
+					I'm a software engineer and consultant based in Denver, CO. I started
+					Pixelstub in 2009 and have been building software professionally since
+					2001. My work spans cloud infrastructure, developer tooling, data
+					pipelines, and technical leadership.
+				</p>
+				<p>
+					I'm a Linux-first, containers-always engineer. I care about clean code,
+					automated quality gates, and building tools that reduce cognitive load.
+					I've worked across startups and enterprise — from Photobucket's early
+					growth to Panasonic's connected vehicle platform — and I bring the same
+					approach to every engagement: understand the problem, build the simplest
+					thing that works, and automate the rest.
+				</p>
+				<p>
+					I'm an active open-source contributor, conference speaker, and Emacs user.
+					I hold an MBA and BS in Computer Science from the University of Denver.
+				</p>
+			</div>
+			<div class="about-sidebar">
+				<div class="card sidebar-card">
+					<h3>Quick Facts</h3>
+					<dl class="facts">
+						<dt>Location</dt>
+						<dd>Denver, CO</dd>
+						<dt>Experience</dt>
+						<dd>25+ years</dd>
+						<dt>Languages</dt>
+						<dd>Python, TypeScript, Bash, PHP</dd>
+						<dt>Cloud</dt>
+						<dd>AWS (primary), GCP</dd>
+						<dt>Editor</dt>
+						<dd>Emacs</dd>
+					</dl>
+				</div>
+				<div class="card sidebar-card">
+					<h3>Links</h3>
+					<ul class="link-list">
+						<li><a href="https://github.com/ahonnecke" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+						<li><a href="https://www.linkedin.com/in/ashtonhonnecke/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+						<li><a href="/cv/cv.pdf" target="_blank">Download CV (PDF)</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-heading">Career</h2>
+			<div class="timeline">
+				{career.map((job) => (
+					<div class="timeline-item card">
+						<div class="timeline-header">
+							<div>
+								<h3>{job.company}</h3>
+								<p class="timeline-role">{job.role}</p>
+							</div>
+							<span class="timeline-years">{job.years}</span>
+						</div>
+						<ul class="timeline-highlights">
+							{job.highlights.map((h) => (
+								<li>{h}</li>
+							))}
+						</ul>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container">
+			<div class="grid grid-2">
+				<div>
+					<h2 class="section-heading">Education</h2>
+					{education.map((ed) => (
+						<div class="edu-item">
+							<h3>{ed.degree}</h3>
+							<p class="edu-school">{ed.school} &middot; {ed.years}</p>
+							<p class="edu-note">{ed.note}</p>
+						</div>
+					))}
+				</div>
+				<div>
+					<h2 class="section-heading">Speaking</h2>
+					{speaking.map((talk) => (
+						<div class="talk-item">
+							<h3><a href={talk.link} target="_blank" rel="noopener noreferrer">{talk.title}</a></h3>
+							<p class="talk-event">{talk.event}</p>
+						</div>
+					))}
+					<h2 class="section-heading" style="margin-top: var(--space-xl);">Open Source</h2>
+					<ul class="oss-list">
+						<li>
+							<a href="https://pypi.org/project/consolo/" target="_blank" rel="noopener noreferrer">Consolo</a>
+							— Hot-mount Lambda filesystems locally
+						</li>
+						<li>
+							<a href="https://pypi.org/project/snifter/" target="_blank" rel="noopener noreferrer">Snifter</a>
+							— CLI SNS topic inspection
+						</li>
+						<li>
+							<a href="https://pypi.org/project/jolly-brancher/" target="_blank" rel="noopener noreferrer">Jolly Brancher</a>
+							— Git/JIRA branch automation
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.about-grid {
+		display: grid;
+		grid-template-columns: 1fr 20rem;
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	@media (max-width: 768px) {
+		.about-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.about-main p {
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-md);
+	}
+
+	.about-main h2 {
+		margin-bottom: var(--space-lg);
+	}
+
+	.sidebar-card {
+		margin-bottom: var(--space-lg);
+	}
+
+	.sidebar-card h3 {
+		font-size: 1rem;
+		margin-bottom: var(--space-md);
+	}
+
+	.facts {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--space-xs) var(--space-md);
+		font-size: 0.875rem;
+	}
+
+	.facts dt {
+		color: var(--color-text-muted);
+	}
+
+	.facts dd {
+		margin: 0;
+	}
+
+	.link-list {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		font-size: 0.875rem;
+	}
+
+	.section-heading {
+		margin-bottom: var(--space-xl);
+	}
+
+	.section-alt {
+		background: var(--color-bg-raised);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-lg);
+	}
+
+	.timeline-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: var(--space-md);
+		margin-bottom: var(--space-md);
+	}
+
+	.timeline-role {
+		color: var(--color-accent);
+		font-size: 0.9375rem;
+		margin-top: var(--space-xs);
+	}
+
+	.timeline-years {
+		color: var(--color-text-muted);
+		font-family: var(--font-mono);
+		font-size: 0.8125rem;
+		white-space: nowrap;
+	}
+
+	.timeline-highlights {
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+	}
+
+	.timeline-highlights li {
+		margin-bottom: var(--space-xs);
+	}
+
+	.edu-item {
+		margin-bottom: var(--space-lg);
+	}
+
+	.edu-school {
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		margin-top: var(--space-xs);
+	}
+
+	.edu-note {
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		font-style: italic;
+	}
+
+	.talk-item {
+		margin-bottom: var(--space-lg);
+	}
+
+	.talk-event {
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		margin-top: var(--space-xs);
+	}
+
+	.oss-list {
+		list-style: none;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+	}
+</style>

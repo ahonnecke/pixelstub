@@ -1,0 +1,152 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/Hero.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import LogoStrip from "../components/LogoStrip.astro";
+import WorkCard from "../components/WorkCard.astro";
+
+const services = [
+	{
+		icon: "&#9729;",
+		title: "Cloud Architecture",
+		description:
+			"AWS infrastructure design, serverless systems, and cost optimization. Lambda, SQS, SNS, ECS, and more.",
+	},
+	{
+		icon: "&#9881;",
+		title: "Developer Tooling",
+		description:
+			"Custom CLIs, workflow automation, and internal tools that reduce friction and keep teams focused on shipping.",
+	},
+	{
+		icon: "&#9776;",
+		title: "CI/CD & DevOps",
+		description:
+			"Build pipelines, containerization, and deployment automation across GitHub Actions, GitLab CI, and more.",
+	},
+	{
+		icon: "&#10070;",
+		title: "Technical Leadership",
+		description:
+			"Architecture reviews, ADRs, mentorship, and hands-on engineering for teams scaling their platform.",
+	},
+];
+
+const featuredWork = [
+	{
+		title: "Serverless Developer Tooling",
+		description:
+			"Open-source utility for hot-mounting AWS Lambda filesystems locally with automatic sync.",
+		href: "/work/consolo",
+		image: "/images/work/consolo.png",
+		tags: ["Python", "AWS Lambda", "boto3"],
+	},
+	{
+		title: "AWS Debugging Infrastructure",
+		description:
+			"CLI tool for real-time SNS topic inspection with interactive debugging support.",
+		href: "/work/snifter",
+		image: "/images/work/snifter.png",
+		tags: ["Python", "AWS SNS/SQS", "CLI"],
+	},
+	{
+		title: "AI-Powered Automation",
+		description:
+			"Negotiation assistant using NLP to manage multi-dealer email conversations and counter-offers.",
+		href: "/work/hagglebot",
+		image: "/images/work/hagglebot.png",
+		tags: ["React", "NLP", "Docker"],
+	},
+];
+---
+
+<PageLayout title="Pixelstub, LLC — Software Consulting">
+	<Hero
+		headline="Software engineering consulting for teams that ship"
+		tagline="I help engineering teams design cloud infrastructure, build developer tools, and ship reliable software. 25 years of hands-on experience across startups and enterprise."
+		ctaText="Get in touch"
+		ctaHref="/contact"
+		secondaryText="View work"
+		secondaryHref="/work"
+	/>
+
+	<LogoStrip />
+
+	<section class="section">
+		<div class="container">
+			<h2 class="section-heading">Services</h2>
+			<div class="grid grid-4">
+				{services.map((s) => (
+					<ServiceCard
+						icon={s.icon}
+						title={s.title}
+						description={s.description}
+					/>
+				))}
+			</div>
+			<div class="section-cta">
+				<a href="/services" class="btn btn-outline">All services</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-heading">Selected Work</h2>
+			<div class="grid grid-3">
+				{featuredWork.map((w) => (
+					<WorkCard
+						title={w.title}
+						description={w.description}
+						href={w.href}
+						image={w.image}
+						tags={w.tags}
+					/>
+				))}
+			</div>
+			<div class="section-cta">
+				<a href="/work" class="btn btn-outline">All case studies</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container cta-section">
+			<h2>Ready to build something?</h2>
+			<p class="cta-text">
+				I work with teams on hourly, project, or retainer engagements.
+				Let's talk about what you need.
+			</p>
+			<a href="/contact" class="btn btn-primary">Start a conversation</a>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.section-heading {
+		margin-bottom: var(--space-xl);
+	}
+
+	.section-alt {
+		background: var(--color-bg-raised);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.section-cta {
+		margin-top: var(--space-xl);
+		display: flex;
+		justify-content: center;
+	}
+
+	.cta-section {
+		text-align: center;
+		max-width: 36rem;
+	}
+
+	.cta-text {
+		color: var(--color-text-muted);
+		margin: var(--space-md) auto var(--space-xl);
+		max-width: 36rem;
+	}
+</style>

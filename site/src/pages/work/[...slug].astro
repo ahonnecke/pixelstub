@@ -1,0 +1,106 @@
+---
+import { getCollection, render } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+
+export async function getStaticPaths() {
+	const work = await getCollection("work");
+	return work.map((entry) => ({
+		params: { slug: entry.id.replace(/\.mdx?$/, "") },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<PageLayout
+	title={`${entry.data.title} — Pixelstub, LLC`}
+	description={entry.data.description}
+	ogImage={entry.data.image}
+>
+	<article class="section">
+		<div class="container article-container">
+			<header class="article-header">
+				<a href="/work" class="back-link">&larr; All work</a>
+				<h1>{entry.data.title}</h1>
+				<p class="article-desc">{entry.data.description}</p>
+				<div class="article-tags">
+					{entry.data.tags.map((tag) => (
+						<span class="tag">{tag}</span>
+					))}
+				</div>
+			</header>
+
+			{entry.data.image && (
+				<div class="article-image">
+					<img src={entry.data.image} alt={entry.data.title} />
+				</div>
+			)}
+
+			<div class="prose">
+				<Content />
+			</div>
+
+			{entry.data.link && (
+				<div class="article-link">
+					<a href={entry.data.link} target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+						View project &rarr;
+					</a>
+				</div>
+			)}
+		</div>
+	</article>
+</PageLayout>
+
+<style>
+	.article-container {
+		max-width: 48rem;
+	}
+
+	.article-header {
+		margin-bottom: var(--space-xl);
+	}
+
+	.back-link {
+		display: inline-block;
+		color: var(--color-text-muted);
+		font-size: 0.875rem;
+		margin-bottom: var(--space-lg);
+	}
+
+	.back-link:hover {
+		color: var(--color-accent);
+	}
+
+	.article-desc {
+		color: var(--color-text-muted);
+		font-size: 1.125rem;
+		margin-top: var(--space-md);
+		line-height: 1.6;
+	}
+
+	.article-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		margin-top: var(--space-lg);
+	}
+
+	.article-image {
+		margin-bottom: var(--space-xl);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		border: 1px solid var(--color-border);
+	}
+
+	.article-image img {
+		width: 100%;
+	}
+
+	.article-link {
+		margin-top: var(--space-xl);
+		padding-top: var(--space-xl);
+		border-top: 1px solid var(--color-border);
+	}
+</style>

@@ -1,0 +1,120 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/Hero.astro";
+import ContactForm from "../components/ContactForm.tsx";
+---
+
+<PageLayout
+	title="Contact — Pixelstub, LLC"
+	description="Get in touch with Pixelstub, LLC for software consulting inquiries."
+>
+	<Hero
+		headline="Contact"
+		tagline="Tell me about your project. I'll get back to you within a business day."
+	/>
+
+	<section class="section">
+		<div class="container contact-grid">
+			<div class="contact-form-wrap">
+				<ContactForm client:load />
+			</div>
+			<div class="contact-info">
+				<div class="card">
+					<h3>Other ways to reach me</h3>
+					<dl class="contact-details">
+						<dt>Email</dt>
+						<dd><a href="mailto:ashton@pixelstub.com">ashton@pixelstub.com</a></dd>
+						<dt>LinkedIn</dt>
+						<dd><a href="https://www.linkedin.com/in/ashtonhonnecke/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ashtonhonnecke</a></dd>
+						<dt>GitHub</dt>
+						<dd><a href="https://github.com/ahonnecke" target="_blank" rel="noopener noreferrer">github.com/ahonnecke</a></dd>
+						<dt>Location</dt>
+						<dd>Denver, CO</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 20rem;
+		gap: var(--space-xl);
+		align-items: start;
+	}
+
+	@media (max-width: 768px) {
+		.contact-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.contact-form-wrap :global(.contact-form) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+	}
+
+	.contact-form-wrap :global(.form-field) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xs);
+	}
+
+	.contact-form-wrap :global(label) {
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: var(--color-text-muted);
+	}
+
+	.contact-form-wrap :global(input),
+	.contact-form-wrap :global(textarea) {
+		background: var(--color-bg-card);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-sm);
+		padding: 0.75rem;
+		color: var(--color-text);
+		font-family: var(--font-body);
+		font-size: 0.9375rem;
+		transition: border-color 0.2s;
+	}
+
+	.contact-form-wrap :global(input:focus),
+	.contact-form-wrap :global(textarea:focus) {
+		outline: none;
+		border-color: var(--color-accent);
+	}
+
+	.contact-form-wrap :global(.form-success) {
+		padding: var(--space-xl);
+		text-align: center;
+		color: var(--color-accent);
+	}
+
+	.contact-form-wrap :global(.form-error) {
+		color: #ef4444;
+		font-size: 0.875rem;
+	}
+
+	.contact-info h3 {
+		font-size: 1rem;
+		margin-bottom: var(--space-md);
+	}
+
+	.contact-details {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: var(--space-xs) var(--space-md);
+		font-size: 0.875rem;
+	}
+
+	.contact-details dt {
+		color: var(--color-text-muted);
+	}
+
+	.contact-details dd {
+		margin: 0;
+	}
+</style>

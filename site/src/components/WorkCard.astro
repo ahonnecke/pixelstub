@@ -1,0 +1,91 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	href: string;
+	image?: string;
+	tags?: string[];
+}
+
+const { title, description, href, image, tags = [] } = Astro.props;
+---
+
+<a href={href} class="card work-card">
+	{image && (
+		<div class="work-image-wrap">
+			<img src={image} alt={title} loading="lazy" />
+		</div>
+	)}
+	<div class="work-content">
+		<h3 class="work-title">{title}</h3>
+		<p class="work-desc">{description}</p>
+		{tags.length > 0 && (
+			<div class="work-tags">
+				{tags.map((tag) => (
+					<span class="tag">{tag}</span>
+				))}
+			</div>
+		)}
+	</div>
+</a>
+
+<style>
+	.work-card {
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+		color: inherit;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.work-image-wrap {
+		aspect-ratio: 16 / 10;
+		overflow: hidden;
+		background: var(--color-bg-raised);
+	}
+
+	.work-image-wrap img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 0.3s;
+	}
+
+	.work-card:hover .work-image-wrap img {
+		transform: scale(1.03);
+	}
+
+	.work-content {
+		padding: var(--space-lg);
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.work-title {
+		font-size: 1.125rem;
+	}
+
+	.work-desc {
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+		line-height: 1.6;
+	}
+
+	.work-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		margin-top: var(--space-xs);
+	}
+
+	.tag {
+		font-size: 0.75rem;
+		font-family: var(--font-mono);
+		color: var(--color-accent);
+		background: var(--color-accent-dim);
+		padding: 0.125rem 0.5rem;
+		border-radius: var(--radius-sm);
+	}
+</style>

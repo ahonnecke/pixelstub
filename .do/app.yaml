@@ -1,0 +1,16 @@
+name: pixelstub-consulting
+region: sfo
+domains:
+  - domain: pixelstub.com
+    type: PRIMARY
+    zone: pixelstub.com
+static_sites:
+  - name: pixelstub-web
+    environment_slug: html
+    github:
+      branch: main
+      deploy_on_push: true
+      repo: ahonnecke/pixelstub
+    source_dir: site
+    build_command: npm install && npm run build
+    output_dir: dist

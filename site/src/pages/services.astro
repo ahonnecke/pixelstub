@@ -1,0 +1,218 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<PageLayout
+	title="Services — Pixelstub, LLC"
+	description="Cloud architecture, developer tooling, CI/CD, and technical leadership consulting from Pixelstub, LLC."
+>
+	<Hero
+		headline="Services"
+		tagline="Hands-on engineering and architecture consulting for teams building on AWS, shipping with containers, and scaling their platforms."
+	/>
+
+	<section class="section">
+		<div class="container">
+			<div class="services-grid">
+				<div class="service-detail card">
+					<h2>Cloud Architecture & Serverless</h2>
+					<p>
+						Design and implementation of AWS infrastructure — Lambda, SQS, SNS, ECS/Fargate,
+						API Gateway, S3, CloudWatch. I build event-driven systems that scale horizontally
+						and cost less than you'd expect.
+					</p>
+					<h4>What this looks like</h4>
+					<ul>
+						<li>Architecture reviews and ADRs for new services</li>
+						<li>Serverless migration from monolith or container workloads</li>
+						<li>Cost audits that identify unused resources (I've delivered ~30% infra savings)</li>
+						<li>Near-real-time data pipelines on Lambda/SQS/SNS</li>
+					</ul>
+					<div class="tech-tags">
+						<span class="tag">AWS Lambda</span>
+						<span class="tag">SQS/SNS</span>
+						<span class="tag">ECS/Fargate</span>
+						<span class="tag">API Gateway</span>
+						<span class="tag">CloudWatch</span>
+						<span class="tag">Terraform</span>
+					</div>
+				</div>
+
+				<div class="service-detail card">
+					<h2>Developer Tooling & Automation</h2>
+					<p>
+						Custom CLIs, internal tools, and workflow automation that reduce friction.
+						I build the tools that let your team focus on shipping instead of fighting
+						their environment.
+					</p>
+					<h4>What this looks like</h4>
+					<ul>
+						<li>CLI tools for Lambda development, SNS debugging, branch management</li>
+						<li>Git/JIRA/GitHub automation to eliminate context switching</li>
+						<li>Build pipeline optimization that cuts build time and cost</li>
+						<li>Developer environment standardization with containers</li>
+					</ul>
+					<div class="tech-tags">
+						<span class="tag">Python</span>
+						<span class="tag">Bash</span>
+						<span class="tag">Docker</span>
+						<span class="tag">boto3</span>
+						<span class="tag">Click/Typer</span>
+					</div>
+				</div>
+
+				<div class="service-detail card">
+					<h2>CI/CD & DevOps</h2>
+					<p>
+						End-to-end build, test, and deployment pipelines. I've worked across
+						GitHub Actions, GitLab CI, CircleCI, and Bitbucket Pipelines — and I'm
+						a strong advocate for containers, linting, and automated quality gates.
+					</p>
+					<h4>What this looks like</h4>
+					<ul>
+						<li>CI pipeline design with parallel test execution</li>
+						<li>Docker multi-stage builds and container orchestration</li>
+						<li>Pre-commit hooks, linting, and code quality automation</li>
+						<li>SonarQube rollout and test coverage improvement</li>
+					</ul>
+					<div class="tech-tags">
+						<span class="tag">GitHub Actions</span>
+						<span class="tag">Docker</span>
+						<span class="tag">Docker Compose</span>
+						<span class="tag">SonarQube</span>
+						<span class="tag">pre-commit</span>
+					</div>
+				</div>
+
+				<div class="service-detail card">
+					<h2>Technical Leadership</h2>
+					<p>
+						Architecture direction, mentorship, and hands-on engineering for teams
+						that need senior-level support without a full-time headcount. I've led
+						cross-team best-practices groups, authored incident playbooks, and mentored
+						engineers on security and code quality.
+					</p>
+					<h4>What this looks like</h4>
+					<ul>
+						<li>Architecture reviews and technical direction</li>
+						<li>ADR authoring for event-driven and serverless patterns</li>
+						<li>Incident playbooks and blameless post-mortems</li>
+						<li>Developer mentorship on security, testing, and best practices</li>
+					</ul>
+					<div class="tech-tags">
+						<span class="tag">ADRs</span>
+						<span class="tag">Mentorship</span>
+						<span class="tag">Code Review</span>
+						<span class="tag">Security</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section section-alt">
+		<div class="container">
+			<h2 class="section-heading">Engagement Types</h2>
+			<div class="grid grid-3">
+				<div class="card engagement">
+					<h3>Hourly</h3>
+					<p>
+						For targeted questions, architecture reviews, or debugging sessions.
+						No commitment, pay for what you use.
+					</p>
+				</div>
+				<div class="card engagement">
+					<h3>Project</h3>
+					<p>
+						Scoped engagements with clear deliverables. Pipeline builds, tool development,
+						infrastructure migrations.
+					</p>
+				</div>
+				<div class="card engagement">
+					<h3>Retainer</h3>
+					<p>
+						Ongoing support for teams that need consistent senior engineering capacity.
+						Weekly hours, monthly cadence.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section">
+		<div class="container cta-section">
+			<h2>Let's talk about your project</h2>
+			<p class="cta-text">
+				Every engagement starts with a conversation. Tell me what you're working on
+				and I'll let you know how I can help.
+			</p>
+			<a href="/contact" class="btn btn-primary">Get in touch</a>
+		</div>
+	</section>
+</PageLayout>
+
+<style>
+	.services-grid {
+		display: grid;
+		gap: var(--space-lg);
+	}
+
+	.service-detail h2 {
+		margin-bottom: var(--space-md);
+	}
+
+	.service-detail h4 {
+		margin-top: var(--space-lg);
+		margin-bottom: var(--space-sm);
+		color: var(--color-accent);
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.service-detail ul {
+		color: var(--color-text-muted);
+		margin-bottom: var(--space-md);
+	}
+
+	.service-detail li {
+		margin-bottom: var(--space-xs);
+	}
+
+	.tech-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		margin-top: var(--space-md);
+	}
+
+	.section-heading {
+		margin-bottom: var(--space-xl);
+	}
+
+	.section-alt {
+		background: var(--color-bg-raised);
+		border-top: 1px solid var(--color-border);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.engagement h3 {
+		margin-bottom: var(--space-sm);
+	}
+
+	.engagement p {
+		color: var(--color-text-muted);
+		font-size: 0.9375rem;
+	}
+
+	.cta-section {
+		text-align: center;
+		max-width: 36rem;
+	}
+
+	.cta-text {
+		color: var(--color-text-muted);
+		margin: var(--space-md) auto var(--space-xl);
+	}
+</style>

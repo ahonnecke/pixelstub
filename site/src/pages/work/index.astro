@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import Hero from "../../components/Hero.astro";
+import WorkCard from "../../components/WorkCard.astro";
+
+const allWork = (await getCollection("work")).sort(
+	(a, b) => a.data.order - b.data.order,
+);
+
+function stripExtension(id: string) {
+	return id.replace(/\.mdx?$/, "");
+}
+---
+
+<PageLayout
+	title="Work — Pixelstub, LLC"
+	description="Case studies from Pixelstub, LLC — serverless tooling, cloud infrastructure, developer automation, and more."
+>
+	<Hero
+		headline="Work"
+		tagline="Selected projects and case studies. Each one reflects a real problem, a practical approach, and a shipped result."
+	/>
+
+	<section class="section">
+		<div class="container">
+			<div class="grid grid-3">
+				{allWork.map((entry) => (
+					<WorkCard
+						title={entry.data.title}
+						description={entry.data.description}
+						href={`/work/${stripExtension(entry.id)}`}
+						image={entry.data.image}
+						tags={entry.data.tags}
+					/>
+				))}
+			</div>
+		</div>
+	</section>
+</PageLayout>

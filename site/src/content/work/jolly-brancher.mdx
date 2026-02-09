@@ -1,0 +1,33 @@
+---
+title: "Developer Workflow Automation"
+description: "Git/JIRA integration tool that automates branch creation and PR generation from ticket metadata."
+image: "/images/work/jolly-brancher.png"
+tags: ["Python", "Git", "JIRA", "GitHub API", "CLI", "Open Source"]
+link: "https://pypi.org/project/jolly-brancher/"
+order: 3
+---
+
+## Problem
+
+Wiring up git branches to a ticketing system is tedious and error-prone. Developers copy-paste ticket IDs into branch names, manually write PR descriptions, and lose context switching between JIRA and their terminal.
+
+## Approach
+
+I built **Jolly-Brancher** to automate the entire flow. Point it at a repo and a JIRA ticket, and it handles the rest.
+
+Key capabilities:
+
+- **Branch Creation** — Creates branches with ticket ID and summary baked into the name
+- **PR Generation** — Generates pull requests from well-formed branches with a single command
+- **Auto-filled Descriptions** — PR body gets pre-filled with ticket details
+- **Configurable** — Set JIRA and GitHub credentials in `~/.config/jolly_brancher.ini`
+
+## Technologies
+
+- Python
+- JIRA REST API, GitHub API
+- PyPI for distribution
+
+## Outcome
+
+Jolly-Brancher eliminated repetitive context switching between JIRA, GitHub, and the terminal. It enforces consistent branch naming conventions and ensures PRs always link back to their source tickets. It's used daily to stay focused on code instead of copy-pasting ticket IDs.

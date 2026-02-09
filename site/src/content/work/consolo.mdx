@@ -1,0 +1,32 @@
+---
+title: "Serverless Developer Tooling"
+description: "Open-source CLI for hot-mounting AWS Lambda filesystems locally with automatic sync and hot reloading."
+image: "/images/work/consolo.png"
+tags: ["Python", "AWS Lambda", "boto3", "CLI", "Open Source"]
+link: "https://pypi.org/project/consolo/"
+order: 1
+---
+
+## Problem
+
+Developing against AWS Lambda functions requires constant upload/download cycles. There's no native way to edit Lambda code locally and see changes take effect immediately — the feedback loop is slow and frustrating.
+
+## Approach
+
+I built **Consolo**, a free and open-source utility that pseudo-mounts an AWS Lambda filesystem locally. It watches for file changes and automatically syncs them to the Lambda function, giving you a hot-reload development experience for serverless code.
+
+Key capabilities:
+
+- **Hot Syncing** — Automatically syncs local changes to Lambda in real time
+- **Upload and Download** — Push or pull Lambda code with a single flag
+- **Simple Install** — Available via `pip install consolo` or a single curl command
+
+## Technologies
+
+- Python (argdantic, requests, watchdog, boto3)
+- AWS Lambda, S3
+- PyPI for distribution
+
+## Outcome
+
+Consolo eliminated the manual upload/download cycle from Lambda development. It reduced iteration time from minutes to seconds, and became useful enough to publish as an open-source package on PyPI. It's a good example of building lightweight, practical tools that improve everyday developer workflows.

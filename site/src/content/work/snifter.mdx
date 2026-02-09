@@ -1,0 +1,32 @@
+---
+title: "AWS Debugging Infrastructure"
+description: "CLI tool for real-time AWS SNS topic inspection with interactive debugging support."
+image: "/images/work/snifter.png"
+tags: ["Python", "AWS SNS", "AWS SQS", "CLI", "Open Source"]
+link: "https://pypi.org/project/snifter/"
+order: 2
+---
+
+## Problem
+
+AWS SNS messages are ephemeral — there's no built-in way to inspect what a topic is emitting without subscribing via email or SMS, which isn't practical for debugging. When troubleshooting event-driven architectures, you need to see messages in real time.
+
+## Approach
+
+I built **Snifter** to solve this. It creates a temporary SQS queue, subscribes it to your SNS topic, and watches incoming messages — all in a single command.
+
+Key capabilities:
+
+- **Live Streaming** — Watch SNS messages in real time with minimal setup
+- **Interactive Debugging** — Add `--debug` to drop into a debugger as messages arrive
+- **Clean CLI** — Works with any AWS profile and topic ARN
+
+## Technologies
+
+- Python, AWS SDK (boto3)
+- AWS SNS, SQS
+- PyPI for distribution
+
+## Outcome
+
+Snifter turned a multi-step manual process (create queue, subscribe, poll, clean up) into a single command. It's a lightweight, throwaway tool for understanding what an SNS topic is emitting without setting up permanent infrastructure.
