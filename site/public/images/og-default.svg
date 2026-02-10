@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0f1117"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1c1f2e" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Accent line at top -->
+  <rect x="0" y="0" width="1200" height="3" fill="#38bdf8"/>
+
+  <!-- Key icon -->
+  <rect x="80" y="200" width="80" height="72" rx="12" fill="#1a1c2a"/>
+  <rect x="76" y="194" width="80" height="72" rx="12" fill="#2a2d3e" stroke="#3a3d4e" stroke-width="2"/>
+  <rect x="82" y="200" width="68" height="56" rx="8" fill="#1c1f2e" stroke="#444860" stroke-width="1"/>
+  <text x="116" y="234" font-family="monospace" font-size="36" font-weight="bold" fill="#38bdf8" text-anchor="middle" dominant-baseline="middle">P</text>
+
+  <!-- Company name -->
+  <text x="190" y="228" font-family="system-ui, sans-serif" font-size="52" font-weight="700" fill="#e8e8ec" letter-spacing="-1">Pixelstub, LLC</text>
+
+  <!-- Tagline -->
+  <text x="80" y="340" font-family="system-ui, sans-serif" font-size="28" fill="#9ca3af">Software engineering consulting for teams that ship.</text>
+
+  <!-- Services -->
+  <text x="80" y="420" font-family="monospace" font-size="18" fill="#38bdf8">Cloud Architecture</text>
+  <text x="80" y="450" font-family="monospace" font-size="18" fill="#38bdf8">Developer Tooling</text>
+  <text x="380" y="420" font-family="monospace" font-size="18" fill="#38bdf8">CI/CD &amp; DevOps</text>
+  <text x="380" y="450" font-family="monospace" font-size="18" fill="#38bdf8">Technical Leadership</text>
+
+  <!-- URL -->
+  <text x="80" y="540" font-family="monospace" font-size="20" fill="#6a737d">pixelstub.com</text>
+
+  <!-- Bottom accent -->
+  <rect x="0" y="627" width="1200" height="3" fill="#38bdf8"/>
+</svg>

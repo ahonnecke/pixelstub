@@ -1,0 +1,217 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="404 — Pixelstub, LLC">
+	<Header />
+	<main class="emacs-wrap">
+		<div class="emacs-frame">
+			<div class="emacs-buffer">
+				<div class="dg-header">
+					<span class="dg-comment">;; -*- mode: deadgrep; default-directory: "~/src/pixelstub/" -*-</span>
+				</div>
+				<div class="dg-section">
+					<span class="dg-label">Search term:</span>
+					<span class="dg-value" id="search-term">/this-page</span>
+				</div>
+				<div class="dg-section">
+					<span class="dg-label">Search type:</span>
+					<span class="dg-option active">string</span>
+					<span class="dg-option">regexp</span>
+				</div>
+				<div class="dg-section">
+					<span class="dg-label">Case:</span>
+					<span class="dg-option active">smart</span>
+					<span class="dg-option">sensitive</span>
+					<span class="dg-option">ignore</span>
+				</div>
+				<div class="dg-section">
+					<span class="dg-label">Directory:</span>
+					<span class="dg-value">~/src/pixelstub/site/src/pages/</span>
+				</div>
+				<div class="dg-blank"></div>
+				<div class="dg-results">
+					<span class="dg-no-results">No results found.</span>
+				</div>
+				<div class="dg-blank"></div>
+				<div class="dg-hint">
+					<span class="dg-comment">;; The page you're looking for doesn't exist.</span>
+				</div>
+				<div class="dg-hint">
+					<span class="dg-comment">;; Try one of these instead:</span>
+				</div>
+				<div class="dg-blank"></div>
+				<div class="dg-links">
+					<span class="dg-line-num">  1</span><span class="dg-match"><a href="/">index.astro</a></span><span class="dg-context">  &#8212; Home</span>
+				</div>
+				<div class="dg-links">
+					<span class="dg-line-num">  2</span><span class="dg-match"><a href="/services">services.astro</a></span><span class="dg-context">  &#8212; Services</span>
+				</div>
+				<div class="dg-links">
+					<span class="dg-line-num">  3</span><span class="dg-match"><a href="/work">work/index.astro</a></span><span class="dg-context">  &#8212; Case Studies</span>
+				</div>
+				<div class="dg-links">
+					<span class="dg-line-num">  4</span><span class="dg-match"><a href="/about">about.astro</a></span><span class="dg-context">  &#8212; About</span>
+				</div>
+				<div class="dg-links">
+					<span class="dg-line-num">  5</span><span class="dg-match"><a href="/contact">contact.astro</a></span><span class="dg-context">  &#8212; Contact</span>
+				</div>
+			</div>
+			<div class="modeline">
+				<span class="modeline-modified">-U:</span>
+				<span class="modeline-buffer">**</span>
+				<span class="modeline-name">&nbsp;&nbsp;*deadgrep search*</span>
+				<span class="modeline-fill"></span>
+				<span class="modeline-modes">(deadgrep)</span>
+				<span class="modeline-right">Bot L13&nbsp;&nbsp;</span>
+			</div>
+			<div class="minibuffer">
+				<span class="mini-text">Pattern not found [404]</span>
+			</div>
+		</div>
+	</main>
+	<Footer />
+</BaseLayout>
+
+<script>
+	const path = window.location.pathname;
+	const el = document.getElementById("search-term");
+	if (el) el.textContent = path;
+</script>
+
+<style>
+	.emacs-wrap {
+		display: flex;
+		justify-content: center;
+		padding: var(--space-xl) var(--space-lg);
+		flex: 1;
+	}
+
+	.emacs-frame {
+		width: 100%;
+		max-width: 52rem;
+		border: 1px solid #444860;
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		line-height: 1.6;
+	}
+
+	.emacs-buffer {
+		background: #1c1f2e;
+		padding: 1rem 1.25rem;
+		min-height: 20rem;
+	}
+
+	.dg-header {
+		margin-bottom: 1rem;
+	}
+
+	.dg-comment {
+		color: #6a737d;
+	}
+
+	.dg-section {
+		margin-bottom: 0.25rem;
+	}
+
+	.dg-label {
+		color: #ff7b72;
+		font-weight: bold;
+	}
+
+	.dg-value {
+		color: #79c0ff;
+	}
+
+	.dg-option {
+		color: #6a737d;
+		margin-left: 0.5rem;
+	}
+
+	.dg-option.active {
+		color: #ffa657;
+		text-decoration: underline;
+	}
+
+	.dg-blank {
+		height: 1.4em;
+	}
+
+	.dg-no-results {
+		color: #f85149;
+		font-weight: bold;
+	}
+
+	.dg-links {
+		margin-bottom: 0.125rem;
+	}
+
+	.dg-line-num {
+		color: #6a737d;
+		margin-right: 0.75rem;
+		user-select: none;
+	}
+
+	.dg-match a {
+		color: #7ee787;
+		text-decoration: none;
+	}
+
+	.dg-match a:hover {
+		text-decoration: underline;
+		color: #aff5b4;
+	}
+
+	.dg-context {
+		color: #8b949e;
+	}
+
+	.modeline {
+		display: flex;
+		background: #3a3d4e;
+		color: #e8e8ec;
+		padding: 0.125rem 0.75rem;
+		font-size: 0.8125rem;
+		border-top: 1px solid #555;
+	}
+
+	.modeline-modified {
+		color: #e8e8ec;
+	}
+
+	.modeline-buffer {
+		color: #ff7b72;
+	}
+
+	.modeline-name {
+		color: #79c0ff;
+		font-weight: bold;
+	}
+
+	.modeline-fill {
+		flex: 1;
+	}
+
+	.modeline-modes {
+		color: #e8e8ec;
+	}
+
+	.modeline-right {
+		color: #8b949e;
+		margin-left: 1rem;
+	}
+
+	.minibuffer {
+		background: #0f1117;
+		padding: 0.25rem 0.75rem;
+		font-size: 0.8125rem;
+	}
+
+	.mini-text {
+		color: #f85149;
+	}
+</style>
