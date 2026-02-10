@@ -3,7 +3,6 @@ region: sfo
 domains:
   - domain: pixelstub.com
     type: PRIMARY
-    zone: pixelstub.com
 static_sites:
   - name: pixelstub-web
     environment_slug: html
